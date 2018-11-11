@@ -1,0 +1,57 @@
+{
+  "name": "black-door-chat-service",
+  "version": "1.0.0",
+  "description": "Black Door Chat Service",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "start": "webpack-dev-server --inline --hot",
+    "pretest": "npm run build",
+    "test": "nyc mocha -r ts-node/register -r ignore-styles -r jsdom-global/register lib/**/*.spec.ts",
+    "test-watch": "npm test -- --watch --watch-extensions ts",
+    "preversion": "npm test",
+    "version": "npm run build",
+    "postversion": "git push && git push --tags && rm -rf build/temp"
+  },
+  "nyc": {
+    "extends": "nyc.config.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cristianmercado19/black-door-chat-service.git"
+  },
+  "author": "Cristian Mercado",
+  "license": "MIT",
+  "homepage": "https://github.com/cristianmercado19/black-door-chat-service",
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^5.2.5",
+    "chai": "^4.1.2",
+    "css-loader": "^1.0.0",
+    "html-loader": "^0.5.5",
+    "ignore-styles": "^5.0.1",
+    "jsdom": "^11.12.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2",
+    "sass-loader": "^6.0.7",
+    "source-map-support": "^0.5.8",
+    "style-loader": "^0.20.3",
+    "ts-loader": "^3.3.1",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "dependencies": {
+    "@types/chai-arrays": "^1.0.2",
+    "@types/node": "^10.11.7",
+    "black-door-chat-mvc": "git+https://github.com/cristianmercado19/black-door-chat-mvc.git",
+    "chai-arrays": "^2.0.0",
+    "node-sass": "^4.9.4",
+    "raw-loader": "^0.5.1",
+    "rimraf": "^2.6.2",
+    "webrtc-adapter": "^6.4.3"
+  }
+}
