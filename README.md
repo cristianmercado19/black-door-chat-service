@@ -1,86 +1,25 @@
-# basic-package
+# Black Door Chat - Service
 
-## Init
-Initialize `package.json` file
+Where this project coming from? [Black Door Chat Project Introduction](https://github.com/cristianmercado19/black-door-chat).
 
-### Command
->`npm init`
+## Project
 
-### Result
-https://www.screencast.com/t/5c5Ej5J4Y
+I have just implemented the minimum necessary interfaces for committing the controller's requirements.</br>
+This **ChatService** hides the implementation of `webrtc-adapter/out/adapter.js`</br>
+The complexity of the signialling process, the offer and answer manipulation among others.</br>
+I personally believe those *265 lines of code* could be reduced if we separate the responsibility of this class. As an example, I could extract in a separate class the signaling process.</br>
+However, I have decided to keep it as a single class for the moment.
 
-## Install typescript
+## Commands
 
-### Installation 
+1. Install dependencies `yarn install`
+2. Regenerate the distribution package (`dist` directory ) `yarn build`
+3. Run minimal testing `yarn start` and navigate to `lib/test/index`
 
-#### Command
->`npm i typescript -D`
+## Testing
 
-#### Result
-https://www.screencast.com/t/zwZJDGwfpa
+Particularly in this project I have included a minimal testing (`lib/test/index.ts`) which runs when you execute `yarn start` command. It is because the implementation of `adapter.js` requires a **live browser**.
 
-### Generate tsconfig.json
-The presence of a `tsconfig.json` file in a directory indicates that the directory is the root of a TypeScript project. 
-The `tsconfig.json` file specifies the root files and the compiler options required to compile the project.
+Just run `yarn start`, navigate to `lib/test/index` and open the console to see more details.
 
-#### Pre-requirements
->`npm i -g typescript -D`
->`npm i -g typings -D`
-
-#### Result
-https://www.screencast.com/t/kWOlm8Ce
-
-
-#### Command
-> `tsc --init`
-
-#### Result
-https://www.screencast.com/t/AF8rNqW4
-
-### Updating D:\Repositories\basic-package\tsconfig.json
-
-* `"lib": ["es2015", "es2017", "dom"],`
-* `"declaration": true,`
-* `"outDir": "./dist",`
-
-### Create folders
-
-#### Command
-> `md lib`
-> `md dist`
-
-
-### Update .gitignore
-
-Copy file
-
-### Create index.ts
-Create first file inside `lib` folder
-
-Add any TS code
-
-### Configure the build command
-
-* Edit package.json
-https://www.screencast.com/t/2HOwzSZwC
-
-* `npm run build`
-https://www.screencast.com/t/6hefZbOVr
-
-
-### Configure Tests
-
-* Add `test` folder
-* `npm i mocha -D`
-* `npm i chai -D`
-* `npm i ts-node -D`
-* `npm i @types/chai -D`
-* `npm i @types/mocha -D`
-* `npm i ignore-styles -D`
-* `npm i jsdom -D`
-* `npm i jsdom-global -D`
-* edit package json
-`"test": "mocha -r ts-node/register -r ignore-styles -r jsdom-global/register lib/**/*.spec.ts",`
-
-https://www.screencast.com/t/WvdSbSLD
-
+`lib/test/index.ts` will give you an idea about the use of this `ChatService` class. In fact, this test emulates a **simple conversation** between 2 peers sending a simple message.
