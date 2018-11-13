@@ -4,11 +4,10 @@ Where this project coming from? [Black Door Chat Project Introduction](https://g
 
 ## Project
 
-I have just implemented the minimum necessary interfaces for committing the controller's requirements.</br>
-This **ChatService** hides the implementation of `webrtc-adapter/out/adapter.js`</br>
-The complexity of the signialling process, the offer and answer manipulation among others.</br>
-I personally believe those *265 lines of code* could be reduced if we separate the responsibility of this class. As an example, I could extract in a separate class the signaling process.</br>
-However, I have decided to keep it as a single class for the moment.
+I have just implemented the minimum necessary interfaces for committing the controller's requirements - [MVC](https://github.com/cristianmercado19/black-door-chat-mvc).</br>
+This **ChatService** hides the complexity under `webrtc-adapter/out/adapter.js` implementations. Also the signialling process, the offer and answer negotiation among others.</br>
+I personally believe those *265 lines of code* could be reduced. As an example, I could move the signaling process into an other class.</br>
+However, I have decided to keep it as a single class for my own convenience.
 
 ## Commands
 
@@ -18,7 +17,7 @@ However, I have decided to keep it as a single class for the moment.
 
 ## Testing
 
-Particularly in this project I have included a minimal testing (`lib/test/index.ts`) which runs when you execute `yarn start` command. It is because the implementation of `adapter.js` requires a **live browser**.
+Particularly in this project I have included a *minimal testing* (`lib/test/index.ts`) which runs when you execute `yarn start` command. It is because the implementation of `adapter.js` requires a **live browser**.
 
 Just run `yarn start`, navigate to `lib/test/index` and open the console to see more details.
 
